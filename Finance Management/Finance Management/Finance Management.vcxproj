@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{eb6d4584-11d5-4c67-b64f-b2302c1c54f2}</ProjectGuid>
-    <RootNamespace>TagPuzzle</RootNamespace>
+    <ProjectGuid>{323e2b22-8ed0-4122-b2b8-a5288bdbf22e}</ProjectGuid>
+    <RootNamespace>FinanceManagement</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -70,6 +70,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PublicIncludeDirectories>nlohmann/json.hpp;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -104,6 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Projects\Finance Management\Finance Management\library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +131,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Tag Puzzle.cpp" />
+    <ClCompile Include="Balance.cpp" />
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="DateOfExpiration.cpp" />
+    <ClCompile Include="Finance Management.cpp" />
+    <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="UserData.cpp" />
+    <ClCompile Include="Transaction.cpp" />
+    <ClCompile Include="Wallet.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Balance.h" />
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="DateOfExpiration.h" />
+    <ClInclude Include="Functions.h" />
+    <ClInclude Include="UserData.h" />
+    <ClInclude Include="Transaction.h" />
+    <ClInclude Include="Wallet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
