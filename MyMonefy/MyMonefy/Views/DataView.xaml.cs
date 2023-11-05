@@ -10,13 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MyMonefy.Views
 {
-    public partial class DiagramView : Window
+    /// <summary>
+    /// Interaction logic for DataView.xaml
+    /// </summary>
+    public partial class DataView : UserControl
     {
-        public DiagramView()
+        public DataView()
         {
             InitializeComponent();
         }

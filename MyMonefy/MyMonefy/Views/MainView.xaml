@@ -29,6 +29,7 @@
                 Click="Minimize_Click"
                 Name="Minimize"
                 Style="{DynamicResource MaterialDesignFlatButton}">
+                
                 <md:PackIcon Kind="Minimize"
                              Foreground="Black"/>
             </Button>
@@ -39,6 +40,7 @@
                 Click="Maximize_Click"
                 Name="Maximize"
                 Style="{DynamicResource MaterialDesignFlatButton}">
+                
                 <md:PackIcon Kind="Maximize"
                              Foreground="Black"/>
             </Button>
@@ -49,6 +51,7 @@
                 Click="Close_Click"
                 Name="Close"
                 Style="{DynamicResource MaterialDesignFlatButton}">
+                
                 <md:PackIcon Kind="Close"
                              Foreground="Black"/>
             </Button>

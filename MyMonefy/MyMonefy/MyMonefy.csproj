@@ -16,7 +16,9 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\Classes\" />
+    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 
 </Project>
