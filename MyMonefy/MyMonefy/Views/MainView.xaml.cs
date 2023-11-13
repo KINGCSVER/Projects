@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyMonefy
+namespace MyMonefy.Views
 {
     public partial class MainView : Window
     {
@@ -25,6 +25,7 @@ namespace MyMonefy
         private void Minimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -42,6 +43,7 @@ namespace MyMonefy
             {
                 this.WindowState = WindowState.Normal;
             }
+
         }
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {

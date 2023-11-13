@@ -8,9 +8,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MyMonefy.ViewModels
+namespace MyMonefy.ViewModels;
+
+class MainViewModel : ViewModelBase
 {
-    internal class MainViewModel
+    public  ViewModelBase CurrentView { get; set; }
+
+    public MainViewModel()
     {
+        CurrentView = App.Container.GetInstance<CalculatorViewModel>();
     }
 }

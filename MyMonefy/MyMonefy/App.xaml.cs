@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using SimpleInjector;
 using GalaSoft.MvvmLight;
+using MyMonefy.Views;
 
 namespace MyMonefy
 {
@@ -20,6 +21,8 @@ namespace MyMonefy
         {
 
             Container.RegisterSingleton<MainViewModel>();
+            Container.RegisterSingleton<DataViewModel>();
+            Container.RegisterSingleton<CalculatorViewModel>();
 
 
             Container.Verify();
