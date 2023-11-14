@@ -7,6 +7,31 @@
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="450">
+
+
+    <UserControl.Resources>
+        <Style TargetType="Button" x:Key="MyCalculatorButton" BasedOn="{StaticResource MaterialDesignFlatAccentButton}">
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Command" Value="{Binding Click}"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="md:PackIcon" x:Key="NumberPackIcon">
+            <Setter Property="Height" Value="57"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        
+        <Style TargetType="md:PackIcon" x:Key="ButtonPackIcon">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style> 
+    </UserControl.Resources>
+
+
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
@@ -64,226 +89,151 @@
 
         <Button 
             Grid.Row="4" 
-            Grid.Column="0" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="0"                  
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="NumericOneCircleOutline"
-                Height="57"
-                Width="70"
-                Foreground="Black"/>
+                Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="4" 
-            Grid.Column="1" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="1"                 
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="NumericTwoCircleOutline"
-                Height="57"
-                Width="70"
-                Foreground="Black"/>
+                Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button
             Grid.Row="4" 
-            Grid.Column="2" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="2"                   
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="NumericThreeCircleOutline"
-                Height="57"
-                Width="70"
-                Foreground="Black"/>
+                Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button Grid.Row="4" 
-            Grid.Column="3" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="3"                
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="Plus"
-                Height="50"
-                Width="40"
-                Foreground="Black"/>
+                Style="{StaticResource ButtonPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="5" 
-            Grid.Column="0" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="0"                   
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="NumericFourCircleOutline"
-                Height="57"
-                Width="70"
-                Foreground="Black"/>
+                Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="5" 
-            Grid.Column="1" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="1"                  
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="NumericFiveCircleOutline"
-                Height="57"
-                Width="70"
-                Foreground="Black"/>
+                Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="5" 
-            Grid.Column="2" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="2"                            
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="NumericSixCircleOutline"
-                Height="57"
-                Width="70"
-                Foreground="Black"/>
+                Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="5" 
-            Grid.Column="3" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="3"                    
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="Minus"
-                Height="50"
-                Width="40"
-                Foreground="Black"/>
+                Style="{StaticResource ButtonPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="6" 
-            Grid.Column="0" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="0"                   
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="NumericSevenCircleOutline"
-                Height="57"
-                Width="70"
-                Foreground="Black"/>
+                Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button
             Grid.Row="6" 
-            Grid.Column="1" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="1"                   
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="NumericEightCircleOutline"
-                Height="57"
-                Width="70"
-                Foreground="Black"/>
+                Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="6" 
-            Grid.Column="2" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="2"                   
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                     Kind="NumericNineCircleOutline"
-                    Height="57"
-                    Width="70"
-                    Foreground="Black"/>
+                    Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="6" 
-            Grid.Column="3" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="3"                               
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="Multiply"
-                Height="50"
-                Width="40"
-                Foreground="Black"/>
+                Style="{StaticResource ButtonPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="7" 
-            Grid.Column="0" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="0"                  
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="Dot"
-                Height="40"
-                Width="50"
-                Foreground="Black"/>
+                Style="{StaticResource ButtonPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="7" 
-            Grid.Column="1" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="1"                 
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="NumericZeroCircleOutline"
-                Height="57"
-                Width="70"
-                Foreground="Black"/>
+                Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="7" 
-            Grid.Column="2" 
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="2"                   
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="Equal"
-                Height="40"
-                Width="60"
-                Foreground="Black"/>
+                Style="{StaticResource ButtonPackIcon}"/>
         </Button>
 
         <Button 
