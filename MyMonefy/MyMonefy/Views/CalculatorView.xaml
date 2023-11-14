@@ -67,16 +67,49 @@
             Foreground="DimGray">
         </Button>
 
-        <TextBlock Grid.Row="1"
-                   Grid.Column="0"
-                   Grid.ColumnSpan="4"
-                   Width="420"
-                   Height="80"
-                   Text="42321"
-                   TextAlignment="Right"
-                   FontSize="55"
-                   Background="#07BF96"
-                   Foreground="White"/>
+        <Border 
+            Grid.Row="1"
+            Grid.ColumnSpan="4"
+            Width="420"
+            Height="80"
+            Background="#07BF96">
+
+            <TextBlock 
+                Width="300"
+                Height="80"
+                Text="42321"
+                TextAlignment="Right"
+                FontSize="55"
+                Foreground="White"/>
+
+        </Border>
+
+        <Button Grid.Row="1"
+            Grid.Column="0" 
+            VerticalAlignment="Center"
+            Margin="15 0 38 0"
+            Height="50"
+            Style="{DynamicResource MaterialDesignFlatButton}">
+            <md:PackIcon
+                Kind="CreditCard"
+                Height="40"
+                Width="29"
+                Foreground="White"/>
+
+        </Button>
+
+        <Button Grid.Row="1"
+            Grid.Column="3" 
+            VerticalAlignment="Center"
+            Margin="38 0 16 0"
+            Height="50"
+            Style="{DynamicResource MaterialDesignFlatButton}">
+            <md:PackIcon
+                Kind="Backspace"
+                Height="40"
+                Width="26"
+                Foreground="White"/>
+        </Button>
 
         <TextBox Grid.Row="2"
                  Grid.Column="0"
@@ -238,18 +271,12 @@
 
         <Button 
             Grid.Row="7" 
-            Grid.Column="3"
-            Grid.ColumnSpan="4"
-            Width="100" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Grid.Column="3"                 
+            Style="{StaticResource MyCalculatorButton}">
 
             <md:PackIcon 
                 Kind="Divide"
-                Height="40"
-                Width="60"
-                Foreground="Black"/>
+                Style="{StaticResource ButtonPackIcon}"/>
         </Button>
 
         <Button 
@@ -277,7 +304,5 @@
             FontSize="30"
             Content="Back">
         </Button>
-
-
     </Grid>
 </UserControl>
