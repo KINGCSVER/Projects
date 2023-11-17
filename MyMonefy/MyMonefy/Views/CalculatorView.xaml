@@ -10,29 +10,28 @@
 
 
     <UserControl.Resources>
-        <Style TargetType="Button" x:Key="MyCalculatorButton" BasedOn="{StaticResource MaterialDesignFlatAccentButton}">
-            <Setter Property="Height" Value="60" />
+        <Style TargetType="Button" x:Key="MyCalculatorButton" 
+               BasedOn="{StaticResource MaterialDesignOutlinedButton}">
+            <Setter Property="Height" Value="80" />
             <Setter Property="Width" Value="100" />
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Command" Value="{Binding Click}"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#07BF96"/>
         </Style>
 
         <Style TargetType="md:PackIcon" x:Key="NumberPackIcon">
-            <Setter Property="Height" Value="57"/>
+            <Setter Property="Height" Value="70"/>
             <Setter Property="Width" Value="70"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
-        
+
         <Style TargetType="md:PackIcon" x:Key="ButtonPackIcon">
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Width" Value="50"/>
             <Setter Property="Foreground" Value="Black"/>
-        </Style> 
+        </Style>
     </UserControl.Resources>
 
-
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition/>
@@ -42,8 +41,7 @@
             <RowDefinition Height="0.7*"/>
             <RowDefinition Height="0.7*"/>
             <RowDefinition Height="0.7*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.7*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -52,6 +50,38 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <Border 
+            Grid.Row="1"
+            Grid.ColumnSpan="4"
+            Width="420"
+            Height="80"
+            Background="#07BF96">
+
+            <TextBlock 
+                Width="300"
+                Height="80"               
+                TextAlignment="Right"
+                FontSize="55"
+                Foreground="White"
+                Text="{Binding ExpressionText}"/>
+
+        </Border>
+
+        <Button 
+            Grid.Row="0"
+            Grid.Column="0" 
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Height="50"
+            Style="{DynamicResource MaterialDesignFlatButton}"
+            Command="{Binding Back_Click}">
+            <md:PackIcon                
+                Kind="ArrowBack"
+                Height="40"
+                Width="40"
+                Foreground="#07BF96"/>
+        </Button>
 
         <Button 
             Grid.Row="0" 
@@ -66,23 +96,6 @@
             FontStyle="Italic"
             Foreground="DimGray">
         </Button>
-
-        <Border 
-            Grid.Row="1"
-            Grid.ColumnSpan="4"
-            Width="420"
-            Height="80"
-            Background="#07BF96">
-
-            <TextBlock 
-                Width="300"
-                Height="80"
-                Text="42321"
-                TextAlignment="Right"
-                FontSize="55"
-                Foreground="White"/>
-
-        </Border>
 
         <Button Grid.Row="1"
             Grid.Column="0" 
@@ -103,7 +116,8 @@
             VerticalAlignment="Center"
             Margin="38 0 16 0"
             Height="50"
-            Style="{DynamicResource MaterialDesignFlatButton}">
+            Style="{DynamicResource MaterialDesignFlatButton}"
+            Command="{Binding Backspace_Click}">
             <md:PackIcon
                 Kind="Backspace"
                 Height="40"
@@ -123,36 +137,44 @@
         <Button 
             Grid.Row="4" 
             Grid.Column="0"                  
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="1"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                Kind="NumericOneCircleOutline"
+                Kind="NumericOne"
                 Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="4" 
             Grid.Column="1"                 
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="2"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                Kind="NumericTwoCircleOutline"
+                Kind="NumericTwo"
                 Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button
             Grid.Row="4" 
             Grid.Column="2"                   
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="3"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                Kind="NumericThreeCircleOutline"
+                Kind="NumericThree"
                 Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button Grid.Row="4" 
             Grid.Column="3"                
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="+"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
                 Kind="Plus"
@@ -162,37 +184,45 @@
         <Button 
             Grid.Row="5" 
             Grid.Column="0"                   
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="4"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                Kind="NumericFourCircleOutline"
+                Kind="NumericFour"
                 Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="5" 
             Grid.Column="1"                  
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="5"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                Kind="NumericFiveCircleOutline"
+                Kind="NumericFive"
                 Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="5" 
             Grid.Column="2"                            
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="6"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                Kind="NumericSixCircleOutline"
+                Kind="NumericSix"
                 Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="5" 
             Grid.Column="3"                    
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="-"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
                 Kind="Minus"
@@ -202,37 +232,45 @@
         <Button 
             Grid.Row="6" 
             Grid.Column="0"                   
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="7"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                Kind="NumericSevenCircleOutline"
+                Kind="NumericSeven"
                 Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button
             Grid.Row="6" 
             Grid.Column="1"                   
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="8"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                Kind="NumericEightCircleOutline"
+                Kind="NumericEight"
                 Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="6" 
             Grid.Column="2"                   
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="9"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                    Kind="NumericNineCircleOutline"
+                    Kind="NumericNine"
                     Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="6" 
             Grid.Column="3"                               
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="*"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
                 Kind="Multiply"
@@ -242,7 +280,9 @@
         <Button 
             Grid.Row="7" 
             Grid.Column="0"                  
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="."
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
                 Kind="Dot"
@@ -252,17 +292,21 @@
         <Button 
             Grid.Row="7" 
             Grid.Column="1"                 
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="0"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
-                Kind="NumericZeroCircleOutline"
+                Kind="NumericZero"
                 Style="{StaticResource NumberPackIcon}"/>
         </Button>
 
         <Button 
             Grid.Row="7" 
             Grid.Column="2"                   
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="="
+            Command="{Binding Equal_Click}">
 
             <md:PackIcon 
                 Kind="Equal"
@@ -272,7 +316,9 @@
         <Button 
             Grid.Row="7" 
             Grid.Column="3"                 
-            Style="{StaticResource MyCalculatorButton}">
+            Style="{StaticResource MyCalculatorButton}"
+            CommandParameter="/"
+            Command="{Binding Calculator_Click}">
 
             <md:PackIcon 
                 Kind="Divide"
@@ -284,25 +330,14 @@
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Width="440" 
-            Height="60" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}"
+            Height="80" 
+            HorizontalAlignment="Center"
+            Command="{Binding Click}"
+            Style="{DynamicResource MaterialDesignOutlinedButton}"
             Foreground="Black"
-            FontSize="30"
-            Content="Enter">
-        </Button>
-
-        <Button 
-            Grid.Row="9" 
-            Grid.Column="0"
-            Grid.ColumnSpan="4"
-            Width="440" 
-            Height="45" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}"
-            Foreground="Black"
-            FontSize="30"
-            Content="Back">
+            FontSize="40"
+            Content="Enter"
+            BorderBrush="#07BF96">
         </Button>
     </Grid>
 </UserControl>

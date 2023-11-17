@@ -10,35 +10,42 @@ using System.Windows;
 using SimpleInjector;
 using GalaSoft.MvvmLight;
 using MyMonefy.Views;
+using MyMonefy.Services.Interfaces;
+using MyMonefy.Services.Classes;
+using GalaSoft.MvvmLight.Messaging;
+using MyMonefy.Messages;
 
-namespace MyMonefy
+namespace MyMonefy;
+
+public partial class App : Application
 {
-    public partial class App : Application
+    public static SimpleInjector.Container Container { get; set; } = new();
+
+    public void Register()
     {
-        public static SimpleInjector.Container Container { get; set; } = new();
 
-        public void Register()
-        {
+        Container.RegisterSingleton<MainViewModel>();
+        Container.RegisterSingleton<DataViewModel>();
+        Container.RegisterSingleton<CalculatorViewModel>();
 
-            Container.RegisterSingleton<MainViewModel>();
-            Container.RegisterSingleton<DataViewModel>();
-            Container.RegisterSingleton<CalculatorViewModel>();
+        Container.RegisterSingleton<INavigationService, NavigationService>();
+        Container.RegisterSingleton<IDataService, DataService>();
+        Container.RegisterSingleton<IMessenger, Messenger>();
+        
 
-
-            Container.Verify();
-        }
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            Register();
-
-            var window = new MainView();
-
-            window.DataContext = Container.GetInstance<MainViewModel>();
-
-            window.ShowDialog();
-        }
-
+        Container.Verify();
     }
+
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        Register();
+
+        var window = new MainView();
+
+        window.DataContext = Container.GetInstance<MainViewModel>();
+
+        window.ShowDialog();
+    }
+
 }
 

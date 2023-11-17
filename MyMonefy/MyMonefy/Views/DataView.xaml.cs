@@ -17,7 +17,6 @@ using LiveCharts.Wpf;
 
 namespace MyMonefy.Views
 {
-
     public partial class DataView : UserControl
     {
         public DataView()

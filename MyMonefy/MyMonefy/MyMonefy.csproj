@@ -13,14 +13,12 @@
     <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="SimpleInjector" Version="5.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Models\" />
-    <Folder Include="Services\Classes\" />
-    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 
 </Project>
