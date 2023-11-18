@@ -4,11 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:MyMonefy.Views"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="450">
-    
+
     <UserControl.Resources>
         <Style TargetType="Button" x:Key="CategoriesButton" 
                BasedOn="{StaticResource MaterialDesignFlatButton}">
@@ -39,52 +38,39 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Row="1" 
-                Grid.Column="0" 
-                Width="90" 
-                Height="40" 
-                HorizontalAlignment="Center"
-                Command="{Binding MenuButton}"               
-                Style="{DynamicResource MaterialDesignFlatButton}">
-
-            <md:PackIcon 
-                Kind="ArrowLeftBold"
-                Height="40"
-                Width="40"
-                Foreground="#07BF96"/>
-        </Button>
-
-        <TextBlock Grid.Row="1" 
-                   Grid.Column="1" 
-                   Grid.ColumnSpan="2" 
-                   Text="12.04.2023"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="24"
-                   FontStyle="Italic"
-                   Foreground="Gray">
-            
-        </TextBlock>
+        <DatePicker
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Width="200" 
+            Height="40" 
+            HorizontalAlignment="Center"
+            FontSize="24"
+            FontStyle="Italic"
+            Foreground="DimGray"
+            Text="{Binding CurrentDate}"/>
 
         <Button Grid.Row="1" 
                 Grid.Column="3" 
-                Width="90" 
-                Height="40" 
-                HorizontalAlignment="Center"
-                Command="{Binding MenuButton}"               
+                Width="60" 
+                Height="50" 
+                HorizontalAlignment="Left"
+                Command="{Binding SaveDate_Click}"               
                 Style="{DynamicResource MaterialDesignFlatButton}">
 
             <md:PackIcon 
-                        Kind="ArrowRightBold"
-                        Height="40"
-                        Width="40"
-                        Foreground="#07BF96"/>
+                        Kind="CheckBox"
+                        Height="47"
+                        Width="30"
+                        Foreground="#07BF96"
+                        HorizontalAlignment="Left"/>
         </Button>
-        
+
         <Button Grid.Row="2" 
                 Grid.Column="0"    
                 Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}">
+                Command="{Binding Category_Click}"
+                CommandParameter="Grocery">
 
             <md:PackIcon 
                         Kind="MarketplaceOutline"
@@ -95,7 +81,9 @@
 
         <Button Grid.Row="2" 
                 Grid.Column="1"             
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Home">
 
             <md:PackIcon 
                         Kind="HomeOutline"
@@ -107,7 +95,9 @@
         
         <Button Grid.Row="2" 
                 Grid.Column="2"
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Car">
 
             <md:PackIcon 
                         Kind="CarOutline"
@@ -115,10 +105,12 @@
                         Width="40"
                         Foreground="DarkGray"/>
         </Button>
-        
+
         <Button Grid.Row="2" 
                 Grid.Column="3"
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Food">
 
             <md:PackIcon 
                         Kind="Restaurant"
@@ -128,21 +120,11 @@
 
         </Button>
 
-        <Wpf:PieChart HorizontalAlignment="Center" 
-                      Grid.Row="3" 
-                      Grid.RowSpan="2" 
-                      Grid.Column="1" 
-                      Grid.ColumnSpan="2"
-                      Height="213"
-                      Width="224">
-           
-
-        </Wpf:PieChart>
-            
-
         <Button Grid.Row="3"
                 Grid.Column="0" 
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Bus">
 
             <md:PackIcon 
                         Kind="Bus"
@@ -154,7 +136,9 @@
 
         <Button Grid.Row="3"
                 Grid.Column="3"
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Health">
 
             <md:PackIcon 
                         Kind="Thermometer"
@@ -166,7 +150,9 @@
 
         <Button Grid.Row="4"
                 Grid.Column="0"
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Hygiene">
 
             <md:PackIcon 
                         Kind="ToothbrushPaste"
@@ -178,7 +164,9 @@
 
         <Button Grid.Row="4"
                 Grid.Column="3"
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Clothes">
 
             <md:PackIcon 
                         Kind="TshirtCrewOutline"
@@ -190,7 +178,9 @@
 
         <Button Grid.Row="5"
                 Grid.Column="0" 
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Communication">
 
             <md:PackIcon 
                         Kind="Phone"
@@ -202,7 +192,9 @@
 
         <Button Grid.Row="5" 
                 Grid.Column="1" 
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Alcohol">
 
             <md:PackIcon 
                         Kind="GlassCocktail"
@@ -214,7 +206,9 @@
         
         <Button Grid.Row="5"
                 Grid.Column="2" 
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Spotify">
 
             <md:PackIcon 
                         Kind="Spotify"
@@ -226,7 +220,9 @@
         
         <Button Grid.Row="5" 
                 Grid.Column="3"
-                Style="{StaticResource CategoriesButton}">
+                Style="{StaticResource CategoriesButton}"
+                Command="{Binding Category_Click}"
+                CommandParameter="Taxi">
 
             <md:PackIcon 
                         Kind="Taxi"
@@ -237,7 +233,11 @@
         </Button>
 
         <Button Grid.Row="6" 
-                Grid.Column="0"   
+                Grid.Column="0"
+                Width="80"
+                Height="50" 
+                HorizontalAlignment="Center"
+                Command="{Binding MenuButton}"
                 Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
@@ -251,13 +251,13 @@
         <TextBlock Grid.Row="6" 
                    Grid.Column="1" 
                    Grid.ColumnSpan="2" 
-                   Text="Balance: "
+                   Text="Balance: 0$"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="24"
                    FontStyle="Italic"
                    Foreground="Gray">
-            
+
         </TextBlock>
 
         <Button Grid.Row="6" 
@@ -277,37 +277,20 @@
         </Button>
 
         <Button Grid.Row="7" 
-                Grid.Column="0"
+                Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Width="150"
                 Height="130" 
                 HorizontalAlignment="Center"
                 Command="{Binding Category_Click}"               
-                Style="{DynamicResource MaterialDesignFlatButton}">
-
-            <md:PackIcon 
-                        Kind="MinusBoxOutline"
-                        Height="100"
-                        Width="100"
-                        Foreground="Red"/>
-
-        </Button>
-
-        <Button Grid.Row="7" 
-                Grid.Column="2"
-                Grid.ColumnSpan="2"
-                Width="150"
-                Height="130" 
-                HorizontalAlignment="Center"
-                Command="{Binding Category_Click}"               
-                Style="{DynamicResource MaterialDesignFlatButton}">
+                Style="{DynamicResource MaterialDesignFlatButton}"
+                CommandParameter="Balance">
 
             <md:PackIcon 
                         Kind="PlusBoxOutline"
                         Height="100"
                         Width="100"
                         Foreground="LimeGreen"/>
-
         </Button>
 
 

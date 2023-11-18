@@ -2,11 +2,14 @@
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using MyMonefy.Messages;
+using MyMonefy.Models;
 using MyMonefy.Services.Classes;
 using MyMonefy.Services.Interfaces;
 using MyMonefy.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -23,6 +26,9 @@ public class MainViewModel : ViewModelBase
     public INavigationService _navigationService;
     private ViewModelBase _currentView;
     public string _visibility;
+    public event PropertyChangedEventHandler PropertyChanged;
+  
+
 
     public string Visibility {
         get => _visibility;
@@ -48,6 +54,7 @@ public class MainViewModel : ViewModelBase
         _messenger.Register<NavigationMessage>(this, message =>
         {
             CurrentView = message.ViewModelType;
+
             if (CurrentView == App.Container.GetInstance<CalculatorViewModel>())
             {
                 Visibility = "Hidden";
@@ -58,4 +65,6 @@ public class MainViewModel : ViewModelBase
             }
         });
     }
+
+
 }

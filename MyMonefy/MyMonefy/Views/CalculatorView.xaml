@@ -83,20 +83,6 @@
                 Foreground="#07BF96"/>
         </Button>
 
-        <Button 
-            Grid.Row="0" 
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Width="200" 
-            Height="40" 
-            HorizontalAlignment="Center"                   
-            Style="{DynamicResource MaterialDesignFlatButton}"
-            Content="12.04.2023"
-            FontSize="24"
-            FontStyle="Italic"
-            Foreground="DimGray">
-        </Button>
-
         <Button Grid.Row="1"
             Grid.Column="0" 
             VerticalAlignment="Center"
@@ -332,11 +318,11 @@
             Width="440" 
             Height="80" 
             HorizontalAlignment="Center"
-            Command="{Binding Click}"
+            Command="{Binding Add_Click}"
             Style="{DynamicResource MaterialDesignOutlinedButton}"
             Foreground="Black"
             FontSize="40"
-            Content="Enter"
+            Content="Add"
             BorderBrush="#07BF96">
         </Button>
     </Grid>

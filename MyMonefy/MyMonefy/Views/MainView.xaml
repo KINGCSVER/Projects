@@ -64,21 +64,7 @@
                 Height="64"
                 VerticalAlignment="Top">
             <DockPanel LastChildFill="True">
-                <Button
-                Grid.Row="1"
-                Margin="0 18 0 0"
-                Command="{Binding MenuButton}"
-                Background="#07BF96"
-                Style="{DynamicResource MaterialDesignFlatButton}"
-                VerticalAlignment="Top"
-                HorizontalAlignment="left">
-
-                    <md:PackIcon 
-                        Kind="Filter"
-                        Width="20"
-                        Height="20"
-                        Foreground="White"/>
-                </Button>
+                
 
                 <TextBlock 
                 Grid.Row="1" 
@@ -86,44 +72,11 @@
                 Foreground="White"
                 FontSize="25"
                 FontStyle="Italic"
-                Margin="120 15 0 0"
+                Margin="20 15 0 0"
                 Height="35" Width="115"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"/>
 
-                <Button 
-                Grid.Row="1"
-                Command="{Binding SearchButton}"
-                Margin="49 18 0 0"
-                Background="#07BF96"
-                Style="{DynamicResource MaterialDesignFlatButton}"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Right">
-
-                    <md:PackIcon 
-                        Kind="Search"
-                        Width="25"
-                        Height="25"
-                        Foreground="White"/>
-
-                </Button>
-
-                <Button
-                Grid.Row="1"
-                Command="{Binding TransferMoney}"
-                Background="#07BF96"
-                Style="{DynamicResource MaterialDesignFlatButton}"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Right"
-                Margin="0 18 0 0">
-
-                    <md:PackIcon 
-                        Kind="ArrowLeftRight"
-                        Width="25"
-                        Height="25"
-                        Foreground="White"/>
-
-                </Button>
 
             </DockPanel>
         </Border>
