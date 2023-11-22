@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:MyMonefy.Views"
+             xmlns:pch="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="450">
 
@@ -14,6 +15,7 @@
             <Setter Property="Height" Value="60" />
             <Setter Property="Width" Value="70" />
             <Setter Property="Command" Value="{Binding Category_Click}"/>
+            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}}"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
 
@@ -48,7 +50,8 @@
             FontSize="24"
             FontStyle="Italic"
             Foreground="DimGray"
-            Text="{Binding CurrentDate}"/>
+            md:CalendarAssist.SelectionForegroundColor="#07BF96"
+            SelectedDate="{Binding CurrentDate}"/>
 
         <Button Grid.Row="1" 
                 Grid.Column="3" 
@@ -68,9 +71,8 @@
 
         <Button Grid.Row="2" 
                 Grid.Column="0"    
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Grocery">
+                Name="Grocery"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="MarketplaceOutline"
@@ -81,9 +83,8 @@
 
         <Button Grid.Row="2" 
                 Grid.Column="1"             
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Home">
+                Name="Home"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="HomeOutline"
@@ -95,9 +96,8 @@
         
         <Button Grid.Row="2" 
                 Grid.Column="2"
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Car">
+                Name="Car"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="CarOutline"
@@ -108,9 +108,8 @@
 
         <Button Grid.Row="2" 
                 Grid.Column="3"
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Food">
+                Name="Food"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="Restaurant"
@@ -119,12 +118,12 @@
                         Foreground="DarkOliveGreen"/>
 
         </Button>
+        
 
         <Button Grid.Row="3"
                 Grid.Column="0" 
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Bus">
+                Name="Bus"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="Bus"
@@ -134,11 +133,17 @@
 
         </Button>
 
+        <pch:PieChart Grid.Row="3" 
+                      Grid.Column="1" 
+                      Grid.RowSpan="2" 
+                      Grid.ColumnSpan="2" 
+                      IsEnabled="False" 
+                      Content="{Binding PieChart}"/>
+
         <Button Grid.Row="3"
                 Grid.Column="3"
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Health">
+                Name="Health"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="Thermometer"
@@ -150,9 +155,8 @@
 
         <Button Grid.Row="4"
                 Grid.Column="0"
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Hygiene">
+                Name="Hygiene"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="ToothbrushPaste"
@@ -164,9 +168,8 @@
 
         <Button Grid.Row="4"
                 Grid.Column="3"
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Clothes">
+                Name="Clothes"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="TshirtCrewOutline"
@@ -178,9 +181,8 @@
 
         <Button Grid.Row="5"
                 Grid.Column="0" 
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Communication">
+                Name="Communication"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="Phone"
@@ -192,9 +194,8 @@
 
         <Button Grid.Row="5" 
                 Grid.Column="1" 
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Alcohol">
+                Name="Alcohol"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="GlassCocktail"
@@ -206,9 +207,8 @@
         
         <Button Grid.Row="5"
                 Grid.Column="2" 
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Spotify">
+                Name="Spotify"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="Spotify"
@@ -220,9 +220,8 @@
         
         <Button Grid.Row="5" 
                 Grid.Column="3"
-                Style="{StaticResource CategoriesButton}"
-                Command="{Binding Category_Click}"
-                CommandParameter="Taxi">
+                Name="Taxi"
+                Style="{StaticResource CategoriesButton}">
 
             <md:PackIcon 
                         Kind="Taxi"
@@ -251,7 +250,7 @@
         <TextBlock Grid.Row="6" 
                    Grid.Column="1" 
                    Grid.ColumnSpan="2" 
-                   Text="Balance: 0$"
+                   Text="{Binding Balance}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="24"
@@ -284,7 +283,8 @@
                 HorizontalAlignment="Center"
                 Command="{Binding Category_Click}"               
                 Style="{DynamicResource MaterialDesignFlatButton}"
-                CommandParameter="Balance">
+                CommandParameter="{Binding RelativeSource = {RelativeSource Self}}"
+                Name="Balance">
 
             <md:PackIcon 
                         Kind="PlusBoxOutline"
