@@ -25,6 +25,7 @@ public class CalculatorViewModel : ViewModelBase
     public StringBuilder Expression = new();
     public string _expressionText;
     DataViewModel _dataViewModel { get; set; }
+    public ChartManager Chart;
 
     public string ExpressionText
     {
@@ -37,6 +38,7 @@ public class CalculatorViewModel : ViewModelBase
 
     public CalculatorViewModel(INavigationService navigationService, DataViewModel dataViewModel)
     {
+        Chart = new(dataViewModel);
         _navigationService = navigationService;
         _dataViewModel = dataViewModel;
     }
@@ -128,9 +130,15 @@ public class CalculatorViewModel : ViewModelBase
                                 item.Categories[0].Costs -= Convert.ToDouble(ExpressionText);                             
                             }
                         }
+                        _dataViewModel.Balance = item.Categories[0].Costs.ToString(); 
                     }
                 }
             }
+
+            Chart.UpdateChart();
+            
+            Expression.Clear();
+            ExpressionText = "";
 
             _navigationService.NavigateTo<DataViewModel>();
         });

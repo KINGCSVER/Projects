@@ -25,7 +25,7 @@ public class DataViewModel : ViewModelBase
     public string SelectedCategory;
     public ObservableCollection<Date> dates = new ObservableCollection<Date>();
 
-    public PieChart _pieChart;
+    public PieChart _pieChart = new();
     public string Color;
     public string Icon;
 
@@ -55,6 +55,12 @@ public class DataViewModel : ViewModelBase
     {
         Category_Click = new RelayCommand<Button>(ButtonClick);
 
+        if (dates.Count == 0)
+        {
+            Date newDate = new Date(_currentDate);
+            dates.Add(newDate);
+        }
+
         _navigationService = navigationService;
         _messengerService = messengerService;
     }
@@ -75,13 +81,14 @@ public class DataViewModel : ViewModelBase
         get => _currentDate;
         set
         {
+
             Set(ref _currentDate, value);
             if (dates.Count != 0)
             {
                 foreach (var _date in dates)
                 {
                     if (_date.date == _currentDate)
-                    {
+                    {                        
                         return;
                     }
                 }
@@ -92,21 +99,6 @@ public class DataViewModel : ViewModelBase
             {
                 Date newDate = new Date(_currentDate);
                 dates.Add(newDate);
-            }
-            foreach (var item in dates)
-            {
-                foreach (var j in item.Categories)
-                {
-                    Balance = item.Categories[0].Costs.ToString();
-                    PieChart.Series.Add(new PieSeries()
-                    {
-                        Fill = (SolidColorBrush)new BrushConverter().ConvertFromString(Color),
-                        Values = new ChartValues<double>
-                        {
-                            j.Costs
-                        }
-                    });
-                }
             }
         }
     }

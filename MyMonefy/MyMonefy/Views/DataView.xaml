@@ -53,22 +53,6 @@
             md:CalendarAssist.SelectionForegroundColor="#07BF96"
             SelectedDate="{Binding CurrentDate}"/>
 
-        <Button Grid.Row="1" 
-                Grid.Column="3" 
-                Width="60" 
-                Height="50" 
-                HorizontalAlignment="Left"
-                Command="{Binding SaveDate_Click}"               
-                Style="{DynamicResource MaterialDesignFlatButton}">
-
-            <md:PackIcon 
-                        Kind="CheckBox"
-                        Height="47"
-                        Width="30"
-                        Foreground="#07BF96"
-                        HorizontalAlignment="Left"/>
-        </Button>
-
         <Button Grid.Row="2" 
                 Grid.Column="0"    
                 Name="Grocery"
