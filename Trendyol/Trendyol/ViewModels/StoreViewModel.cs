@@ -53,7 +53,7 @@ public class StoreViewModel : ViewModelBase
     {
         _navigationService = navigationService;
         _context = context;
-        Product = new ObservableCollection<Product>(_context.Products.ToList());
+        Product = new ObservableCollection<Product>(_context.Products);
         MessengerInstance.Register<Product>(this, "SelectedProductName", SetSelectedProductName);
     }
 

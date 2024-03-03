@@ -28,6 +28,7 @@ public class MainViewModel : ViewModelBase
             Set(ref _visibility, value);
         }
     }
+
     public ViewModelBase CurrentView
     {
         get => _currentView;
@@ -50,11 +51,11 @@ public class MainViewModel : ViewModelBase
             CurrentView = message.ViewModelType;
             if (CurrentView != App.Container.GetInstance<MainViewModel>())
             {
-                Visibility = "Visible";
+                Visibility = "Hidden";
             }
             else
             {
-                Visibility = "Hidden";
+                Visibility = "Visible";
             }
         });
     }

@@ -12,6 +12,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <Button/>
+
         <ContentControl  Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding CurrentView, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>

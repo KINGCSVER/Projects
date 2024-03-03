@@ -25,30 +25,30 @@ public class LoginViewModel : ViewModelBase
     private readonly CurrentUserService _currentUserService;
 
 
-    private string usernameTextBox;
-    private string passwordTextBox;
+    private string _username;
+    private string _password;
 
-    public string TextBox1
+    public string Username
     {
-        get => usernameTextBox;
+        get => _username;
         set
         {
-            if (usernameTextBox != value)
+            if (_username != value)
             {
-                usernameTextBox = value;
-                RaisePropertyChanged(nameof(TextBox1));
+                _username = value;
+                RaisePropertyChanged(nameof(Username));
             }
         }
     }
-    public string TextBox2
+    public string Password
     {
-        get => passwordTextBox;
+        get => _password;
         set
         {
-            if (passwordTextBox != value)
+            if (_password != value)
             {
-                passwordTextBox = value;
-                RaisePropertyChanged(nameof(TextBox2));
+                _password = value;
+                RaisePropertyChanged(nameof(Password));
             }
         }
     }
@@ -78,26 +78,26 @@ public class LoginViewModel : ViewModelBase
 
             try
             {
-                if (_superAdminService.SuperAdminLogin(TextBox1, TextBox2))
+                if (_superAdminService.SuperAdminLogin(Username, Password))
                 {
                     navigationService.NavigateTo<SuperAdminViewModel>();
                 }
-                else if (_adminService.AdminLogin(TextBox1, TextBox2))
+                else if (_adminService.AdminLogin(Username, Password))
                 {
                     navigationService.NavigateTo<AdminViewModel>();
                 }
-                else if (_userService.UserLogin(TextBox1, TextBox2))
+                else if (_userService.UserLogin(Username, Password))
                 {
-                    var user = _userService.LoginGet(TextBox1);
+                    var user = _userService.LoginGet(Username);
                     _currentUserService.UpdateUserData(user);
-                    TextBox1 = "";
-                    TextBox2 = "";
+                    Username = "";
+                    Password = "";
                     navigationService.NavigateTo<MainViewModel>();
                 }
                 else
                 {
                     MessageBox.Show("Wrong password");
-                    TextBox2 = "";
+                    Password = "";
                     return;
                 }
             }
@@ -106,8 +106,8 @@ public class LoginViewModel : ViewModelBase
                 MessageBox.Show($"{ex.Message}");
             }
 
-            TextBox1 = "";
-            TextBox2 = "";
+            Username = "";
+            Password = "";
 
         });
     }

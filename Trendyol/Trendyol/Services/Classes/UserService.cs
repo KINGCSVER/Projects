@@ -22,9 +22,10 @@ public class UserService
         return _context.User.FirstOrDefault(u => u.Username == username);
     }
 
-    public bool UserLogin(string email, string password)
+    public bool UserLogin(string username, string password)
     {
-        User user = _context.User.FirstOrDefault(u => u.Username == email);
+        User user = _context.User.FirstOrDefault(u => u.Username == username);
+
         if (user != null)
         {
             return BCrypt.Net.BCrypt.Verify(password, user.Password);
@@ -39,7 +40,7 @@ public class UserService
         {
             Username = name,
             Email = email,
-            Password = BCrypt.Net.BCrypt.HashPassword(password),         
+            Password = BCrypt.Net.BCrypt.HashPassword(password)         
         };
 
         return user;

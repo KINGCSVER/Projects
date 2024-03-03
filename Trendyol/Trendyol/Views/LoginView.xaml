@@ -8,24 +8,84 @@
              d:DesignHeight="845" d:DesignWidth="1307" Background="#1d1d1d">
     <Grid>
 
-        <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center">
-            <TextBlock Text="Sign up" FontFamily="Cascadia Code SemiBold" FontSize="70" Margin="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Padding="10"/>
+        <StackPanel Orientation="Vertical" 
+                    Margin="20"
+                    HorizontalAlignment="Center">
 
-            <TextBlock Text="User Name" FontFamily="Cascadia Code SemiBold" FontSize="38" Foreground="White" HorizontalAlignment="Left"/>
-            <TextBox x:Name="usernameTextBox" FontFamily="Cascadia Code SemiBold" Text="{Binding TextBox1}" BorderBrush="#ebebea"  Padding="0,10" Foreground="White" Width="360" BorderThickness="0,0,0,1" Margin="10" FontSize="20" />
+            <TextBlock Text="Sign up" 
+                       FontFamily="Cascadia Code SemiBold" 
+                       FontSize="70" 
+                       Margin="20"
+                       Foreground="White"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top" 
+                       FontWeight="Bold" 
+                       Padding="10"/>
 
-            <TextBlock Text="Password" FontFamily="Cascadia Code SemiBold" FontSize="38" Foreground="White" HorizontalAlignment="Left"/>
-            <PasswordBox FontFamily="Cascadia Code SemiBold" BorderBrush="#ebebea"  Padding="0,10" Width="360" BorderThickness="0,0,0,1" Margin="10" FontSize="20" PasswordChanged="PasswordBox_PasswordChanged" Style="{DynamicResource MaterialDesignOutlinedRevealPasswordBox}" Grid.RowSpan="2"/>
+            <TextBlock Text="User Name" 
+                       FontFamily="Cascadia Code SemiBold"
+                       FontSize="38" 
+                       Foreground="White" Width="353"/>
 
-            <Button
-                
-                Content="Forgot password?" FontFamily="Cascadia Code SemiBold" FontSize="18" Height="50" Foreground="White" Command="{Binding ForgotPassword}" BorderThickness="0" Background="Transparent" Margin="10"/>
+            <TextBox x:Name="usernameTextBox" 
+                     FontFamily="Cascadia Code SemiBold" 
+                     Text="{Binding Username}" 
+                     BorderBrush="#ebebea"  
+                     Padding="0,10" Foreground="White" 
+                     Width="360" 
+                     BorderThickness="0,0,0,1" 
+                     Margin="10"
+                     FontSize="20" />
 
-            <Button FontFamily="Cascadia Code SemiBold" FontSize="25" Content="Sign up" Foreground="White" BorderBrush="Transparent"  Background="OrangeRed" BorderThickness="0"  Height="45" Width="360" Command="{Binding CompleteLogin}" Margin="35"/>
+            <TextBlock Text="Password" 
+                       FontFamily="Cascadia Code SemiBold"
+                       FontSize="38" 
+                       Foreground="White"
+                       Width="357"/>
 
-            <Button Content="Doesn't have an account?" Foreground="White" FontFamily="Cascadia Code SemiBold" Background="OrangeRed" BorderBrush="Transparent"  Command="{Binding DoRegistration}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" BorderThickness="0" FontSize="20" VerticalAlignment="Bottom" Width="311" HorizontalAlignment="Center" Margin="10"/>
+            <PasswordBox FontFamily="Cascadia Code SemiBold"
+                         BorderBrush="#ebebea" 
+                         Padding="0,10"
+                         Width="360" 
+                         BorderThickness="0,0,0,1" 
+                         Margin="10"
+                         FontSize="20" 
+                         Grid.RowSpan="2" 
+                         Style="{DynamicResource MaterialDesignOutlinedRevealPasswordBox}" 
+                         Foreground="White"
+                         PasswordChanged="PasswordBox_PasswordChanged"/>
 
+            <Button Content="Forgot password?"
+                    FontFamily="Cascadia Code SemiBold" 
+                    FontSize="20"
+                    Height="32"
+                    Foreground="White" 
+                    Command="{Binding ForgotPassword}"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    Margin="0 20 0 0"/>
+
+            <Button FontFamily="Cascadia Code SemiBold" 
+                    FontSize="25" 
+                    Content="Sign up"
+                    Foreground="White" 
+                    BorderBrush="Transparent" 
+                    Background="OrangeRed"
+                    BorderThickness="0" 
+                    Height="45" 
+                    Width="360" 
+                    Command="{Binding CompleteLogin}"
+                    Margin="0 40 0 0"/>
+
+            <Button Content="Doesn't have an account?"
+                    Foreground="White" 
+                    FontFamily="Cascadia Code SemiBold" 
+                    Background="Transparent" 
+                    BorderBrush="Transparent" 
+                    Command="{Binding DoRegistration}" 
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" 
+                    BorderThickness="0" 
+                    FontSize="15"/>
         </StackPanel>
-
     </Grid>
 </UserControl>

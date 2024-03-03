@@ -19,60 +19,59 @@ public class RegistrationViewModel : ViewModelBase
     private readonly IDataService _dataService;
     private readonly UserService _userService;
 
-    private string usernameTextBox;
-    private string emailTextBox;
-    private string passwordTextBox;
-    private string confirmPasswordTextBox;
-    private string secetWordTextBox;
+    private string _username;
+    private string _email;
+    private string _password;
+    private string _confirmPassword;
 
-    public string TextBox1
+    public string Username
     {
-        get => usernameTextBox;
+        get => _username;
         set
         {
-            if (usernameTextBox != value)
+            if (_username != value)
             {
-                usernameTextBox = value;
-                RaisePropertyChanged(nameof(TextBox1));
+                _username = value;
+                RaisePropertyChanged(nameof(Username));
             }
         }
     }
 
-    public string TextBox2
+    public string Email
     {
-        get => emailTextBox;
+        get => _email;
         set
         {
-            if (emailTextBox != value)
+            if (_email != value)
             {
-                emailTextBox = value;
-                RaisePropertyChanged(nameof(TextBox2));
+                _email = value;
+                RaisePropertyChanged(nameof(Email));
             }
         }
     }
 
-    public string TextBox3
+    public string Password
     {
-        get => passwordTextBox;
+        get => _password;
         set
         {
-            if (passwordTextBox != value)
+            if (_password != value)
             {
-                passwordTextBox = value;
-                RaisePropertyChanged(nameof(TextBox3));
+                _password = value;
+                RaisePropertyChanged(nameof(Password));
             }
         }
     }
 
-    public string TextBox4
+    public string ConfirmPassword
     {
-        get => confirmPasswordTextBox;
+        get => _confirmPassword;
         set
         {
-            if (confirmPasswordTextBox != value)
+            if (_confirmPassword != value)
             {
-                confirmPasswordTextBox = value;
-                RaisePropertyChanged(nameof(TextBox4));
+                _confirmPassword = value;
+                RaisePropertyChanged(nameof(ConfirmPassword));
             }
         }
     }
@@ -89,10 +88,10 @@ public class RegistrationViewModel : ViewModelBase
     {
         get => new(() =>
         {
-            TextBox1 = String.Empty;
-            TextBox2 = String.Empty;
-            TextBox3 = String.Empty;
-            TextBox4 = String.Empty;
+            Username = String.Empty;
+            Email = String.Empty;
+            Password = String.Empty;
+            ConfirmPassword = String.Empty;
             navigationService.NavigateTo<LoginViewModel>();
         });
     }
@@ -103,25 +102,25 @@ public class RegistrationViewModel : ViewModelBase
         {
             try
             {
-                if (_context.User.Any(u => u.Username == TextBox1 || u.Email == TextBox2))
+                if (_context.User.Any(u => u.Username == Username || u.Email == Email))
                 {
                     MessageBox.Show("This user is already exist");
                     return;
                 }
-                else if (TextBox4 != TextBox3)
+                else if (ConfirmPassword != Password)
                 {
                     MessageBox.Show("Passwords aren't same");
                     return;
                 }
                 else
                 {
-                    var newuser = _userService.RegisterUser(TextBox1, TextBox2, TextBox3);
+                    var newuser = _userService.RegisterUser(Username, Email, Password);
                     _context.User.Add(newuser);
                     _context.SaveChanges();
                     MessageBox.Show("Suceestful register");
-                    TextBox1 = "";
-                    TextBox2 = "";
-                    TextBox3 = "";
+                    Username = "";
+                    Email = "";
+                    Password = "";
                     navigationService.NavigateTo<LoginViewModel>();
                 }
             }
@@ -138,8 +137,8 @@ public class RegistrationViewModel : ViewModelBase
         string passwordRegex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\\|[\]{};:'"",.<>/?]).{8,20}$";
         string emailRegex = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
 
-        var userNameCheck = _context.User.FirstOrDefault(u => u.Username == TextBox1);
-        var emailCheck = _context.User.FirstOrDefault(u => u.Email == TextBox2);
+        var userNameCheck = _context.User.FirstOrDefault(u => u.Username == Username);
+        var emailCheck = _context.User.FirstOrDefault(u => u.Email == Email);
 
         if (userNameCheck != null && emailCheck != null)
         {
