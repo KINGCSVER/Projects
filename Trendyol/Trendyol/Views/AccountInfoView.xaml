@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Trendyol.Views"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="845" d:DesignWidth="1307" Background="#1d1d1d">
+             d:DesignHeight="659" d:DesignWidth="1307" Background="#1d1d1d">
     <Grid>
         <Button HorizontalAlignment="Left" 
                 Foreground="#090909"
@@ -30,10 +30,10 @@
                        Margin="40"
                        FontFamily="Cascadia Code SemiBold"/>
 
-            <StackPanel Orientation="Horizontal" Margin="0 70">
+            <StackPanel Orientation="Horizontal" Margin="0 30">
                 <TextBlock Text="User Name: " 
                            FontSize="40" 
-                           Margin="30 10"
+                           Margin="30 10 0 0"
                            Foreground="OrangeRed"
                            FontFamily="Cascadia Code SemiBold"/>
 
@@ -43,14 +43,14 @@
                            FontSize="30" 
                            Foreground="OrangeRed" 
                            HorizontalAlignment="Right" 
-                           Margin="19 10"
+                           Margin="19 10 0 0"
                            FontFamily="Cascadia Code SemiBold"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0 70">
+            <StackPanel Orientation="Horizontal" Margin="0 80">
                 <TextBlock Text="E-mail: " 
                            FontSize="40" 
-                           Margin="30 10" 
+                           Margin="30 10 0 0" 
                            Foreground="OrangeRed"
                            FontFamily="Cascadia Code SemiBold"/>
 
@@ -60,24 +60,25 @@
                            FontSize="30" 
                            Foreground="OrangeRed"
                            HorizontalAlignment="Right" 
-                           Margin="90 10"
+                           Margin="90 10 0 0"
                            FontFamily="Cascadia Code SemiBold"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0 70">
+            <StackPanel Orientation="Horizontal" Margin="0 20">
                 <TextBlock Text="Password: " 
                            FontSize="40" 
-                           Margin="30 10" 
+                           Margin="30 0 0 0" 
                            Foreground="OrangeRed"
                            FontFamily="Cascadia Code SemiBold"/>
 
                 <TextBlock x:Name="passwordField" 
                            Background="Gray" 
                            Text="{Binding Password}"
-                           Width="500" FontSize="30"
+                           Width="500" 
+                           FontSize="30"
                            Foreground="OrangeRed" 
                            HorizontalAlignment="Right" 
-                           Margin="46 10"
+                           Margin="46 10 0 0"
                            FontFamily="Cascadia Code SemiBold"/>
             </StackPanel>
 

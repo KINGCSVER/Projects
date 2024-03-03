@@ -5,15 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trendyol"
         mc:Ignorable="d"
-        Title="Trendyol" Height="845" Width="1307" Background="#1d1d1d">
+        Title="Trendyol" Height="845" Width="1307" Background="Transparent">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.22*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ContentControl  Grid.Row="0" Content="{Binding CurrentView, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Button/>
+        <ContentControl  Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding CurrentView, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>

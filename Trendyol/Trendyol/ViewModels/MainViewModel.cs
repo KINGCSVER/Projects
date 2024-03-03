@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Trendyol.Messages;
 using Trendyol.Services.Interfaces;
 
@@ -17,7 +18,16 @@ public class MainViewModel : ViewModelBase
     private readonly IMessenger _messenger;
     private readonly INavigationService _navigationService;
     private readonly IDataService _dataService;
+    public string _visibility;
 
+    public string Visibility
+    {
+        get => _visibility;
+        set
+        {
+            Set(ref _visibility, value);
+        }
+    }
     public ViewModelBase CurrentView
     {
         get => _currentView;
@@ -27,18 +37,24 @@ public class MainViewModel : ViewModelBase
         }
     }
 
-    public MainViewModel(IMessenger messenger, INavigationService navigationService)
-    { 
-        _navigationService = navigationService;
-        _messenger = messenger;
 
+    public MainViewModel(IMessenger messenger, INavigationService navigationService)
+    {
+        _messenger = messenger;
+        _navigationService = navigationService;
         CurrentView = App.Container.GetInstance<LoginViewModel>();
 
-        messenger.Register<NavigationMessage>(this, message =>
+
+        _messenger.Register<NavigationMessage>(this, message =>
         {
-            if (message != null)
+            CurrentView = message.ViewModelType;
+            if (CurrentView != App.Container.GetInstance<MainViewModel>())
             {
-                CurrentView = message.ViewModelType;
+                Visibility = "Visible";
+            }
+            else
+            {
+                Visibility = "Hidden";
             }
         });
     }

@@ -7,6 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="845" d:DesignWidth="1307" Background="#1d1d1d">
     <Grid>
-            
+
+        <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center">
+            <TextBlock Text="Sign up" FontFamily="Cascadia Code SemiBold" FontSize="70" Margin="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Padding="10"/>
+
+            <TextBlock Text="User Name" FontFamily="Cascadia Code SemiBold" FontSize="38" Foreground="White" HorizontalAlignment="Left"/>
+            <TextBox x:Name="usernameTextBox" FontFamily="Cascadia Code SemiBold" Text="{Binding TextBox1}" BorderBrush="#ebebea"  Padding="0,10" Foreground="White" Width="360" BorderThickness="0,0,0,1" Margin="10" FontSize="20" />
+
+            <TextBlock Text="Password" FontFamily="Cascadia Code SemiBold" FontSize="38" Foreground="White" HorizontalAlignment="Left"/>
+            <PasswordBox FontFamily="Cascadia Code SemiBold" BorderBrush="#ebebea"  Padding="0,10" Width="360" BorderThickness="0,0,0,1" Margin="10" FontSize="20" PasswordChanged="PasswordBox_PasswordChanged" Style="{DynamicResource MaterialDesignOutlinedRevealPasswordBox}" Grid.RowSpan="2"/>
+
+            <Button
+                
+                Content="Forgot password?" FontFamily="Cascadia Code SemiBold" FontSize="18" Height="50" Foreground="White" Command="{Binding ForgotPassword}" BorderThickness="0" Background="Transparent" Margin="10"/>
+
+            <Button FontFamily="Cascadia Code SemiBold" FontSize="25" Content="Sign up" Foreground="White" BorderBrush="Transparent"  Background="OrangeRed" BorderThickness="0"  Height="45" Width="360" Command="{Binding CompleteLogin}" Margin="35"/>
+
+            <Button Content="Doesn't have an account?" Foreground="White" FontFamily="Cascadia Code SemiBold" Background="OrangeRed" BorderBrush="Transparent"  Command="{Binding DoRegistration}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" BorderThickness="0" FontSize="20" VerticalAlignment="Bottom" Width="311" HorizontalAlignment="Center" Margin="10"/>
+
+        </StackPanel>
+
     </Grid>
 </UserControl>

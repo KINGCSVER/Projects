@@ -20,7 +20,6 @@ public class CreateUserViewModel : ViewModelBase
     private string _name;
     private string _email;
     private string _login;
-    private string _secret;
     private string _password;
     private string _trypassword;
 
@@ -40,12 +39,6 @@ public class CreateUserViewModel : ViewModelBase
     {
         get => _login;
         set => Set(ref _login, value);
-    }
-
-    public string Secret
-    {
-        get => _secret;
-        set => Set(ref _secret, value);
     }
 
     public string Password

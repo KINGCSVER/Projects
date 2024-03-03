@@ -38,11 +38,11 @@
                    Foreground="White"/>
             
         <TextBlock Text="Name:"
-                   FontSize="55" 
+                   FontSize="50" 
                    HorizontalAlignment="Left" 
-                   Margin="0 150"
+                   Margin="10 150"
                    FontFamily="Cascadia Code SemiBold"
-                   Foreground="OrangeRed"/>
+                   Foreground="White"/>
             
         <TextBox Text="{Binding Name}"
                  HorizontalAlignment="Left" 
@@ -59,9 +59,9 @@
         <TextBlock Text="Description:" 
                    HorizontalAlignment="Left" 
                    FontSize="43" 
-                   Margin="0 275"
+                   Margin="10 275"
                    FontFamily="Cascadia Code SemiBold"
-                   Foreground="OrangeRed"/>
+                   Foreground="White"/>
         
         <TextBox Text="{Binding Description}" 
                  FontSize="50" 
@@ -78,10 +78,10 @@
         <TextBlock Text="Price:"
                    HorizontalAlignment="Left" 
                    VerticalAlignment="Top"
-                   FontSize="55"
-                   Margin="0 372"
+                   FontSize="50"
+                   Margin="10 372"
                    FontFamily="Cascadia Code SemiBold"
-                   Foreground="OrangeRed"/>
+                   Foreground="White"/>
             
         <TextBox HorizontalAlignment="Left" 
                  FontSize="50"
@@ -98,10 +98,10 @@
         <TextBlock Text="Count:"
                    HorizontalAlignment="Left" 
                    VerticalAlignment="Top" 
-                   FontSize="55"
-                   Margin="0 480"
+                   FontSize="50"
+                   Margin="10 480"
                    FontFamily="Cascadia Code SemiBold"
-                   Foreground="OrangeRed"/>
+                   Foreground="White"/>
             
         <TextBox HorizontalAlignment="Left"
                  FontSize="50"

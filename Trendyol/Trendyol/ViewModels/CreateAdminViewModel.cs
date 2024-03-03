@@ -79,8 +79,8 @@ public class CreateAdminViewModel : ViewModelBase
                         }
                         else
                         {
-                            var newadmin = _adminService.AdminRegister(Login, Password);
-                            _context.Admin.Add(newadmin);
+                            var newAdmin = _adminService.AdminRegister(Login, Password);
+                            _context.Admin.Add(newAdmin);
                             _context.SaveChanges();
                             MessageBox.Show("Success", "Admin");
                             Password = "";

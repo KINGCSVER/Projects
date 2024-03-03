@@ -45,10 +45,8 @@ public partial class App : Application
     {
         Register();
 
-        window.DataContext = Container.GetInstance<AccountInfoViewModel>();
-
+        window.DataContext = Container.GetInstance<MainViewModel>();
 
         window.ShowDialog();
-
     }
 }

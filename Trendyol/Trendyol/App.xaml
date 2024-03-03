@@ -7,6 +7,50 @@
     
     <Application.Resources>
         <ResourceDictionary>
+            <DataTemplate DataType="{x:Type ViewModel:MainViewModel}">
+                <View:MainView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type ViewModel:LoginViewModel}">
+                <View:LoginView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:RegistrationViewModel}">
+                <View:RegistrationView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:AccountInfoViewModel}">
+                <View:AccountInfoView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:ForgotPasswordViewModel}">
+                <View:ForgotPasswordView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:StoreViewModel}">
+                <View:StoreView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:SuperAdminViewModel}">
+                <View:SuperAdminView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:AdminViewModel}">
+                <View:AdminView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:CreateUserViewModel}">
+                <View:CreateUserView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:CreateAdminViewModel}">
+                <View:CreateAdminView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:AddProductViewModel}">
+                <View:AddProductView/>
+            </DataTemplate>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />

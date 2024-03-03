@@ -10,6 +10,7 @@ using Trendyol.Context;
 using Trendyol.Services.Classes;
 using Trendyol.Services.Interfaces;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Trendyol.ViewModels;
 
@@ -26,7 +27,7 @@ public class ForgotPasswordViewModel : ViewModelBase
     private string newPasswordTextBox;
     private string confirmNewPasswordTextBox;
 
-    public string TextBox1
+    public string UsernameBox
     {
         get => usernameTextBox;
         set
@@ -34,12 +35,12 @@ public class ForgotPasswordViewModel : ViewModelBase
             if (usernameTextBox != value)
             {
                 usernameTextBox = value;
-                RaisePropertyChanged(nameof(TextBox1));
+                RaisePropertyChanged(nameof(UsernameBox));
             }
         }
     }
 
-    public string TextBox2
+    public string EmailBox
     {
         get => newPasswordTextBox;
         set
@@ -47,11 +48,11 @@ public class ForgotPasswordViewModel : ViewModelBase
             if (newPasswordTextBox != value)
             {
                 newPasswordTextBox = value;
-                RaisePropertyChanged(nameof(TextBox2));
+                RaisePropertyChanged(nameof(EmailBox));
             }
         }
     }
-    public string TextBox3
+    public string ConfirmBox
     {
         get => confirmNewPasswordTextBox;
         set
@@ -59,7 +60,7 @@ public class ForgotPasswordViewModel : ViewModelBase
             if (confirmNewPasswordTextBox != value)
             {
                 confirmNewPasswordTextBox = value;
-                RaisePropertyChanged(nameof(TextBox3));
+                RaisePropertyChanged(nameof(ConfirmBox));
             }
         }
     }
@@ -88,26 +89,26 @@ public class ForgotPasswordViewModel : ViewModelBase
         {
             try
             {
-                if (!_trendyoulDb.User.Any(u => u.Username == TextBox1 && u.Email == TextBox2))
+                if (!_trendyoulDb.User.Any(u => u.Username == UsernameBox && u.Email == EmailBox))
                 {
                     MessageBox.Show("User not found");
                     return;
                 }
-                else if (TextBox3 != TextBox2)
+                else if (ConfirmBox != EmailBox)
                 {
                     MessageBox.Show("Password mismatch!");
-                    TextBox2 = "";
-                    TextBox3 = "";
+                    EmailBox = "";
+                    ConfirmBox = "";
                     return;
                 }
                 else
                 {
-                    _forgotPasswordService.ForgotPassword(TextBox1, TextBox2, TextBox3);
+                    _forgotPasswordService.ForgotPassword(UsernameBox, EmailBox, ConfirmBox);
                     _trendyoulDb.SaveChanges();
                     MessageBox.Show("Password upgrated succestful");
-                    TextBox1 = "";
-                    TextBox2 = "";
-                    TextBox3 = "";
+                    UsernameBox = "";
+                    EmailBox = "";
+                    ConfirmBox = "";
                     navigationService.NavigateTo<LoginViewModel>();
                 }
             }
