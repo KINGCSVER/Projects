@@ -1,0 +1,34 @@
+:root {
+  --primary: #333; /* Темный цвет для контраста с белым */
+  --secondary: #f5c518; /* Золотой цвет для акцентов, ассоциирующийся с часами */
+  --white: #ffffff;
+  --bg: #fafafa; /* Легкий фон для современного вида */
+}
+
+.container-surface {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem; /* Добавил немного отступов для улучшения визуализации */
+}
+
+.swiper_container {
+  height: 100%;
+  padding: 2rem 0; /* Увеличил отступы для более просторного вида */
+  position: relative;
+  background-color: var(--bg); /* Фоновый цвет для контейнера */
+  border: 1px solid var(--primary); /* Рамка для акцента */
+  border-radius: 1rem; /* Скругленные углы для современного вида */
+}
+
+.swiper-slide {
+  width: 25rem; /* Увеличил ширину слайдов */
+  height: 30rem;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+  border: 2px solid var(--secondary); /* Рамка вокруг изображений */
+}

@@ -1,6 +1,22 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import { Outlet } from "react-router-dom";
 
-export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+function App() {
+  return (
+    <div className="App">
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
+  );
 }
+
+export default App;
