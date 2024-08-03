@@ -48,11 +48,11 @@ export default function Navbar() {
   }, [dispatch, location.pathname, activeItem]);
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50">
+    <div className="fixed top-0 left-0 w-full z-50 ">
       <div className="bg-gray-800 shadow-md">
         <div className="w-full text-gray-200">
-          <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-            <div className="flex flex-row items-center justify-between p-4">
+          <div className="flex justify-between items-center">
+            <div className="flex flex-row items-center justify-start p-4">
               <span className="text-lg font-semibold tracking-widest text-yellow-400 uppercase rounded-lg focus:outline-none focus:shadow-outline">
                 Watch Store
               </span>
@@ -78,26 +78,26 @@ export default function Navbar() {
               </button>
             </div>
             <nav
-              className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row ${
-                menus.mobileMenu ? "flex" : "hidden"
-              }`}
+              className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-start md:flex-row`}
             >
-              {navItems.map((item, index) => (
-                <Link to={`/${item.path.toLowerCase()}`} key={index}>
-                  <button
-                    style={{ textTransform: "capitalize" }}
-                    className={`cursor-pointer px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline 
+              {navItems
+                .filter((i) => i.path !== "auth")
+                .map((item, index) => (
+                  <Link to={`${item.path.toLowerCase()}`} key={index}>
+                    <button
+                      style={{ textTransform: "capitalize" }}
+                      className={`cursor-pointer px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline 
                                         ${
                                           activeItem === item.path
-                                            ? "bg-gray-700 text-yellow-400"
-                                            : "bg-transparent text-gray-200 hover:text-gray-300 focus:text-gray-300 hover:bg-gray-700 focus:bg-gray-700"
+                                            ? "bg-yellow-300 text-yellow-200 dark:bg-yellow-400 dark:text-gray-800"
+                                            : "bg-transparent text-gray-700 dark:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-yellow-300 focus:bg-yellow-300 dark:hover:bg-yellow-300 dark:focus:bg-yellow-300 dark:hover:text-gray-800 dark:focus:text-gray-800"
                                         }`}
-                    onClick={() => dispatch(setActiveItem(item.path))}
-                  >
-                    {item.name}
-                  </button>
-                </Link>
-              ))}
+                      onClick={() => dispatch(setActiveItem(item.path))}
+                    >
+                      {item.path}
+                    </button>
+                  </Link>
+                ))}
 
               {menus.mobileMenu && (
                 <div className="flex flex-row items-center justify-end mt-4 space-x-4">

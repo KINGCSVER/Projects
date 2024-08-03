@@ -20,9 +20,9 @@ export default function Authentication() {
 
   const handleChange = (e, type) => {
     const { name, value } = e.target;
-    if (type === "signup") {
+    if (type === "Login") {
       setUser((prev) => ({ ...prev, [name]: value }));
-    } else if (type === "signin") {
+    } else if (type === "Register") {
       setLogin((prev) => ({ ...prev, [name]: value }));
     }
   };
@@ -52,7 +52,7 @@ export default function Authentication() {
               type="text"
               name="UserName"
               value={user.UserName}
-              onChange={(e) => handleChange(e, "signup")}
+              onChange={(e) => handleChange(e, "Register")}
               placeholder="User name"
               className="input-large"
             />
@@ -60,7 +60,7 @@ export default function Authentication() {
               type="email"
               name="Email"
               value={user.Email}
-              onChange={(e) => handleChange(e, "signup")}
+              onChange={(e) => handleChange(e, "Register")}
               placeholder="Email"
               className="input-large"
             />
@@ -72,7 +72,7 @@ export default function Authentication() {
                 type={showPassword ? "text" : "password"}
                 name="Password"
                 value={user.Password}
-                onChange={(e) => handleChange(e, "signup")}
+                onChange={(e) => handleChange(e, "Register")}
                 placeholder="Password"
                 className="input-large"
               />
@@ -138,7 +138,7 @@ export default function Authentication() {
               type="email"
               name="Email"
               value={login.Email}
-              onChange={(e) => handleChange(e, "signin")}
+              onChange={(e) => handleChange(e, "Login")}
               placeholder="Email"
               className="input-large"
             />
@@ -150,7 +150,7 @@ export default function Authentication() {
                 type={showPassword ? "text" : "password"}
                 name="Password"
                 value={login.Password}
-                onChange={(e) => handleChange(e, "signin")}
+                onChange={(e) => handleChange(e, "Login")}
                 placeholder="Password"
                 className="input-large"
               />

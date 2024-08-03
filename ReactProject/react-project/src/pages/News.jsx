@@ -82,8 +82,8 @@ export default function News() {
               <h2 className="text-2xl font-semibold text-gray-800">
                 {news.title}
               </h2>
-              <p className="text-sm text-gray-500">{news.date}</p>
-              <p className="mt-4 text-gray-700">{news.description}</p>
+              <p className="text-sm !text-gray-800">{news.date}</p>
+              <p className="mt-4 !text-gray-800">{news.description}</p>
             </div>
           </div>
         ))}
@@ -92,7 +92,7 @@ export default function News() {
       <section className="bg-gray-800 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-semibold">Stay Updated!</h1>
-          <p className="mt-4 text-lg">
+          <p className="mt-4 text-lg !text-gray-800">
             Subscribe to our newsletter for the latest news and exclusive offers
             on luxury watches.
           </p>

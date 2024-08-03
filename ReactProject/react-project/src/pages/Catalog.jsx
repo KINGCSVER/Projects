@@ -18,6 +18,8 @@ export default function Catalog() {
   const { searchTerm, filteredProducts, cartOpen, cartItems } =
     productsState || {};
 
+  const products = useSelector((state) => state.catalog.products);
+
   const totalPrice = useSelector((state) => getTotalPrice(state)).toFixed(2);
 
   return (
@@ -58,15 +60,15 @@ export default function Catalog() {
 
       <section className="mt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts &&
-            filteredProducts.map((product) => (
+          {products &&
+            products.map((product) => (
               <div
                 key={product.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden"
               >
                 <img
                   className="w-full h-48 object-cover"
-                  src={product.image}
+                  src={product.imageUrl}
                   alt={product.name}
                 />
                 <div className="p-4">
@@ -79,7 +81,7 @@ export default function Catalog() {
                   </p>
                   <button
                     onClick={() => dispatch(addToCart(product))}
-                    className="mt-4 w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition ease-in-out duration-300"
+                    className="mt-4 w-full py-2 px-4 bg-gray-800 text-white rounded-md hover:bg-yellow-300 hover:text-gray-800 transition ease-in-out duration-300"
                   >
                     Add to Cart
                   </button>

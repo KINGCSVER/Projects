@@ -1,20 +1,25 @@
 :root {
-  --primary-color: #41b482;
-  --secondary-color: #6a59ff;
+  --primary-color: #1f2937;
+  --secondary-color: #1f2937;
   --bg-color: #f0f4f8;
   --card-bg-color: #ffffff;
   --input-bg-color: #f9f9f9;
   --input-border-color: #ddd;
-  --text-color: #333;
-  --btn-primary-color: #009b77;
+  --text-color: #facc15;
+  --btn-primary-color: #1f2937;
   --btn-text-color: #ffffff;
 }
 
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Cinzel";
   src: url("../../fonts/Cinzel/Cinzel-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "Cinzel-Bold";
+  src: url("../../fonts/Cinzel/Cinzel-Bold.ttf") format("truetype");
 }
 
 .login-body {
@@ -23,7 +28,7 @@
   justify-content: center;
   flex-direction: column;
   height: 91.5vh;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Cinzel", sans-serif;
   background: linear-gradient(to right, var(--bg-color), #e6eff1);
 }
 
@@ -67,12 +72,16 @@
 }
 
 .container span {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  margin: 20px 0;
   color: var(--secondary-color);
 }
 
 .link-primary {
   color: var(--secondary-color);
+  font-family: "Cinzel-Bold";
   font-size: 16px;
   text-decoration: none;
   margin: 15px 0 10px;
@@ -241,7 +250,7 @@
 }
 
 .password-container input[type="password"] {
-  font-family: "text-security-disc", sans-serif;
+  font-family: "Cinzel";
 }
 
 .password-toggle {

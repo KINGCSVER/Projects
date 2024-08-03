@@ -108,7 +108,7 @@ export default function Footer() {
                 placeholder="Contact Us"
                 className="w-full text-gray-800 p-3 h-8 rounded-full focus:outline-none focus:border border-yellow-500"
               />
-              <button className="bg-yellow-400 px-6 py-1 rounded-full text-white absolute top-0 right-0">
+              <button className="bg-yellow-400 px-6 py-1 rounded-full text-gray-800 absolute top-0 right-0">
                 Send
               </button>
             </div>
