@@ -18,10 +18,7 @@ export default function Navbar() {
   const { menus, activeItem } = useSelector(selectNavbar);
   const moreMenuRef = useRef(null);
 
-  const navItems = NavItems[0].children.filter((item) => item.name);
-  const moreItems = NavItems[0].children.find(
-    (item) => item.path === "more"
-  ).children;
+  const navItems = NavItems[0].children.filter((item) => item.path);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -101,52 +98,6 @@ export default function Navbar() {
                   </button>
                 </Link>
               ))}
-              <div className="relative" ref={moreMenuRef}>
-                <button
-                  onClick={() => dispatch(toggleMenu("moreMenu"))}
-                  className="flex flex-row items-center px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline 
-                                bg-transparent text-gray-200 hover:text-gray-300 focus:text-gray-300 hover:bg-gray-700 focus:bg-gray-700"
-                >
-                  <span>More</span>
-                  <svg
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    className={`inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1 ${
-                      menus.moreMenu ? "rotate-180" : "rotate-0"
-                    }`}
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
-                {menus.moreMenu && (
-                  <div className="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right z-500">
-                    <div className="px-2 pt-2 pb-4 bg-gray-800 rounded-md shadow-lg">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {moreItems.map(({ title, description, path, icon }) => (
-                          <Link key={title} to={`more/${path}`}>
-                            <button className="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-gray-700 focus:bg-gray-700 cursor-pointer">
-                              <div className="bg-gray-600 text-white rounded-lg p-3">
-                                <FontAwesomeIcon
-                                  icon={icon}
-                                  className="md:h-6 md:w-6 h-4 w-4"
-                                />
-                              </div>
-                              <div className="ml-3">
-                                <p className="font-semibold">{title}</p>
-                                <p className="text-sm">{description}</p>
-                              </div>
-                            </button>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
 
               {menus.mobileMenu && (
                 <div className="flex flex-row items-center justify-end mt-4 space-x-4">

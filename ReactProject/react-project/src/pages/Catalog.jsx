@@ -14,8 +14,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default function Catalog() {
   const dispatch = useDispatch();
+  const productsState = useSelector(selectProducts);
   const { searchTerm, filteredProducts, cartOpen, cartItems } =
-    useSelector(selectProducts);
+    productsState || {};
 
   const totalPrice = useSelector((state) => getTotalPrice(state)).toFixed(2);
 
@@ -50,40 +51,41 @@ export default function Catalog() {
           className="w-full border rounded-md pl-10 pr-4 py-2 focus:border-gray-500 focus:outline-none focus:shadow-outline"
           type="text"
           placeholder="Поиск"
-          value={searchTerm}
+          value={searchTerm || ""}
           onChange={(e) => dispatch(setSearchTerm(e.target.value))}
         />
       </div>
 
       <section className="mt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-            >
-              <img
-                className="w-full h-48 object-cover"
-                src={product.image}
-                alt={product.name}
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {product.name}
-                </h3>
-                <p className="mt-1 text-gray-600">{product.description}</p>
-                <p className="mt-2 text-gray-900 font-bold">
-                  ${product.price.toFixed(2)}
-                </p>
-                <button
-                  onClick={() => dispatch(addToCart(product))}
-                  className="mt-4 w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition ease-in-out duration-300"
-                >
-                  Addd to Cart
-                </button>
+          {filteredProducts &&
+            filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <img
+                  className="w-full h-48 object-cover"
+                  src={product.image}
+                  alt={product.name}
+                />
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {product.name}
+                  </h3>
+                  <p className="mt-1 text-gray-600">{product.description}</p>
+                  <p className="mt-2 text-gray-900 font-bold">
+                    ${product.price.toFixed(2)}
+                  </p>
+                  <button
+                    onClick={() => dispatch(addToCart(product))}
+                    className="mt-4 w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition ease-in-out duration-300"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </section>
 
@@ -91,38 +93,39 @@ export default function Catalog() {
         <section className="fixed right-0 top-0 w-80 h-full bg-white shadow-lg p-4">
           <h2 className="text-xl font-bold text-gray-900">Cart</h2>
           <ul className="mt-4">
-            {cartItems.map((item) => (
-              <li
-                key={item.id}
-                className="flex items-center justify-between mb-4"
-              >
-                <span className="text-gray-800">{item.name}</span>
-                <div className="flex items-center">
-                  <button
-                    onClick={() => dispatch(decrementQuantity(item.id))}
-                    className="px-2 py-1 bg-gray-200 rounded-l-md"
-                  >
-                    -
-                  </button>
-                  <span className="px-2">{item.quantity}</span>
-                  <button
-                    onClick={() => dispatch(incrementQuantity(item.id))}
-                    className="px-2 py-1 bg-gray-200 rounded-r-md"
-                  >
-                    +
-                  </button>
-                </div>
-                <span className="text-gray-900">
-                  ${(item.price * item.quantity).toFixed(2)}
-                </span>
-                <button
-                  onClick={() => dispatch(removeFromCart(item.id))}
-                  className="text-red-500 hover:text-red-700 transition ease-in-out duration-300"
+            {cartItems &&
+              cartItems.map((item) => (
+                <li
+                  key={item.id}
+                  className="flex items-center justify-between mb-4"
                 >
-                  <i className="fas fa-trash-alt"></i>
-                </button>
-              </li>
-            ))}
+                  <span className="text-gray-800">{item.name}</span>
+                  <div className="flex items-center">
+                    <button
+                      onClick={() => dispatch(decrementQuantity(item.id))}
+                      className="px-2 py-1 bg-gray-200 rounded-l-md"
+                    >
+                      -
+                    </button>
+                    <span className="px-2">{item.quantity}</span>
+                    <button
+                      onClick={() => dispatch(incrementQuantity(item.id))}
+                      className="px-2 py-1 bg-gray-200 rounded-r-md"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <span className="text-gray-900">
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </span>
+                  <button
+                    onClick={() => dispatch(removeFromCart(item.id))}
+                    className="text-red-500 hover:text-red-700 transition ease-in-out duration-300"
+                  >
+                    <i className="fas fa-trash-alt"></i>
+                  </button>
+                </li>
+              ))}
           </ul>
           <div className="mt-4 flex justify-between">
             <span className="font-bold text-gray-900">Итого:</span>

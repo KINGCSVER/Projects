@@ -98,11 +98,13 @@ function filterProducts(products, searchTerm) {
   );
 }
 
-export const getTotalPrice = (state) =>
-  state.products.cartItems.reduce(
+export const getTotalPrice = (state) => {
+  const cartItems = state.products?.cartItems || [];
+  return cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
+};
 
 export const {
   setSearchTerm,
